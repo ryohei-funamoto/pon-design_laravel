@@ -20,7 +20,7 @@ class NewsFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->name(),
+            'title' => $this->faker->realText(25),
             'news_category_id' => $this->faker->numberBetween(1, 3),
             'thumbnail' => $this->faker->imageUrl(),
             'content' => $this->faker->realText(500),
