@@ -289,7 +289,3 @@
         @include('components.contact_section')
     </main>
 @endsection
-
-
-
-</html>
