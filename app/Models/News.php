@@ -16,4 +16,8 @@ class News extends Model
         'content',
         'is_public'
     ];
+
+    protected $casts = [
+        'created_at' => 'datetime'
+    ];
 }

@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('news', function () {
-    return view('news.index');
-})->name('news.index');
+Route::get('news', [NewsController::class, 'index'])->name('news.index');
 Route::get('news/detail', function () {
     return view('news.detail');
 })->name('news.detail');
