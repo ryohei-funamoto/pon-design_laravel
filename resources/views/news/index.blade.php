@@ -41,7 +41,7 @@
                                         <time datetime="{{ $news_item->created_at->format('Y-m-d') }}"
                                             class="p-news-list__date">{{ $news_item->created_at->format('Y.m.d') }}</time>
                                         <div class="p-news-list__label">
-                                            <span class="c-label-category">{{ $news_item->category_name }}</span>
+                                            <span class="c-label-category">{{ $news_item->news_category->name }}</span>
                                         </div>
                                     </div>
                                     <div class="p-news-list__body">

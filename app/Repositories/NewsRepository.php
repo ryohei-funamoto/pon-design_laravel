@@ -7,8 +7,8 @@ use App\Models\News;
 class NewsRepository {
     public function getNewsList($limit)
     {
-        return News::select('news.id', 'news.created_at', 'news_categories.name as category_name', 'news.title')
-            ->leftJoin('news_categories', 'news.news_category_id', '=', 'news_categories.id')
+        return News::with('news_category')
+            ->where('news.is_public', '=', 1)
             ->orderBy('news.created_at', 'desc')
             ->limit($limit)
             ->get();
