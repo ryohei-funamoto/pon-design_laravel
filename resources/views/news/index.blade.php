@@ -38,13 +38,14 @@
                             @foreach ($news_list as $news_item)
                                 <li class="p-news-list__item">
                                     <div class="p-news-list__heading">
-                                        <time datetime="{{ $news_item->created_at->format('Y-m-d') }}" class="p-news-list__date">{{ $news_item->created_at->format('Y.m.d') }}</time>
+                                        <time datetime="{{ $news_item->created_at->format('Y-m-d') }}"
+                                            class="p-news-list__date">{{ $news_item->created_at->format('Y.m.d') }}</time>
                                         <div class="p-news-list__label">
                                             <span class="c-label-category">{{ $news_item->category_name }}</span>
                                         </div>
                                     </div>
                                     <div class="p-news-list__body">
-                                        <a href="{{ route('news.detail') }}"
+                                        <a href="{{ route('news.detail', ['id' => $news_item->id]) }}"
                                             class="p-news-list__link">{{ $news_item->title }}</a>
                                     </div>
                                 </li>

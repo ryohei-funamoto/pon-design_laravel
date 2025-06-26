@@ -20,4 +20,9 @@ class News extends Model
     protected $casts = [
         'created_at' => 'datetime'
     ];
+
+    public function news_category()
+    {
+        return $this->belongsTo(NewsCategory::class);
+    }
 }

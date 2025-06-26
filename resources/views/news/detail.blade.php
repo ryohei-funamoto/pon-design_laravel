@@ -29,7 +29,7 @@
                 <!-- 3つめ -->
                 <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="p-breadcrumb__item">
                     <span itemprop="item">
-                        <span itemprop="name">Webデザインニュースサイト「ウェブマガジン」に取材いただきました</span>
+                        <span itemprop="name">{{ $news->title }}</span>
                     </span>
                     <meta itemprop="position" content="3" />
                 </li>
@@ -43,48 +43,31 @@
                     <div class="p-post">
                         <div class="p-post__head">
                             <div class="p-post__title">
-                                Webデザインニュースサイト「ウェブマガジン」に取材いただきました
+                                {{ $news->title }}
                             </div>
                             <div class="p-post__info">
-                                <time class="p-post__date">2030.02.01</time>
-                                <div class="c-label-category">お知らせ</div>
+                                <time class="p-post__date" datetime="{{ $news->created_at->format('Y-m-d') }}">{{ $news->created_at->format('Y.m.d') }}</time>
+                                <div class="c-label-category">{{ $news->news_category->name }}</div>
                             </div>
                         </div>
                         <div class="p-post__body">
-                            <p><img src="{{ asset('img/news-article.jpg') }}" alt=""></p>
-                            <p>
-                                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-                            </p>
-                            <h3>
-                                大見出し
-                            </h3>
-                            <p>
-                                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-                            </p>
-                            <h4>
-                                小見出し
-                            </h4>
-                            <p>
-                                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-                            </p>
-                            <p>
-                                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-                            </p>
+                            <p><img src="{{ $news->thumbnail }}" alt="{{ $news->title }}"></p>
+                            <p>{{ $news->content }}</p>
                         </div>
                         <div class="p-post__sns">
                             <div class="p-sns-share">
                                 <ul class="p-sns-share__list">
                                     <li class="p-sns-share__item">
-                                        <div class="fb-like" data-href="URLが入る" data-layout="button_count"
+                                        <div class="fb-like" data-href="{{ url()->current() }}" data-layout="button_count"
                                             data-action="like" data-size="large" data-show-faces="false" data-share="true">
                                         </div>
                                     </li>
                                     <li class="p-sns-share__item">
-                                        <a href="https://twitter.com/share?url=URLが入る" class="twitter-share-button"
+                                        <a href="https://x.com/share?url={{ url()->current() }}" class="twitter-share-button"
                                             data-size="large" data-show-count="false" data-lang="ja">ツイート</a>
                                     </li>
                                     <li class="p-sns-share__item">
-                                        <a href="http://b.hatena.ne.jp/entry/URLが入る" class="hatena-bookmark-button"
+                                        <a href="http://b.hatena.ne.jp/entry/{{ url()->current() }}" class="hatena-bookmark-button"
                                             data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja"
                                             data-hatena-bookmark-height="28" title="このエントリーをはてなブックマークに追加"><img
                                                 src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
@@ -92,7 +75,7 @@
                                                 style="border: none;" /></a>
                                     </li>
                                     <li class="p-sns-share__item">
-                                        <div class="line-it-button" data-lang="ja" data-type="share-c" data-url="URLが入る"
+                                        <div class="line-it-button" data-lang="ja" data-type="share-c" data-url="{{ url()->current() }}"
                                             style="display: none;"></div>
                                     </li>
                                 </ul>

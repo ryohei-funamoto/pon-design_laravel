@@ -8,9 +8,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('news', [NewsController::class, 'index'])->name('news.index');
-Route::get('news/detail', function () {
-    return view('news.detail');
-})->name('news.detail');
+Route::get('news/{id}', [NewsController::class, 'detail'])->whereNumber('id')->name('news.detail');
 
 Route::get('service', function () {
     return view('service.index');

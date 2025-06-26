@@ -9,4 +9,9 @@ class NewsCategory extends Model
     public $timestamps = false;
 
     protected $fillable = ['name'];
+
+    public function news()
+    {
+        return $this->hasMany(News::class);
+    }
 }

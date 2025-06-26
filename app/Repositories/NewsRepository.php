@@ -13,4 +13,9 @@ class NewsRepository {
             ->limit($limit)
             ->get();
     }
+
+    public function getNewsDetail($id)
+    {
+        return News::with('news_category')->find($id);
+    }
 }
