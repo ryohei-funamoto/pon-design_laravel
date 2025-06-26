@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\TopPageServer;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [TopPageServer::class, 'index'])->name('index');
 
 Route::get('news', [NewsController::class, 'index'])->name('news.index');
 Route::get('news/{id}', [NewsController::class, 'detail'])->whereNumber('id')->name('news.detail');
