@@ -16,7 +16,7 @@ class TopPageServer extends Controller
 
     public function index()
     {
-        $news_list = $this->news_repository->getNewsList(limit: 3);
+        $news_list = $this->news_repository->getNewsList(limit: 3, use_pagination: false);
         return view('index', ['news_list' => $news_list]);
     }
 }
