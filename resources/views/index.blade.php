@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="p-news-list__body">
-                                    <a href="{{ route('news.detail') }}"
+                                    <a href=""
                                         class="p-news-list__link">Webデザインニュースサイト「ウェブマガジン」に取材いただきました</a>
                                 </div>
                             </li>
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="p-news-list__body">
-                                    <a href="{{ route('news.detail') }}"
+                                    <a href=""
                                         class="p-news-list__link">Smoothiesta様のWebサイトを制作いたしました</a>
                                 </div>
                             </li>
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="p-news-list__body">
-                                    <a href="{{ route('news.detail') }}" class="p-news-list__link">Webデザイナーを１名募集中です！</a>
+                                    <a href="" class="p-news-list__link">Webデザイナーを１名募集中です！</a>
                                 </div>
                             </li>
                         </ul>
