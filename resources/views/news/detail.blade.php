@@ -102,16 +102,16 @@
                             <div class="p-post-pager">
                                 <div class="p-post-pager__list">
                                     <div class="p-post-pager__item p-post-pager__item--prev">
-                                        <a href="{{ route('news.detail') }}" class="p-post-pager__link">Web
+                                        <a href="" class="p-post-pager__link">Web
                                             Conference様のサイトを制作いたしました</a>
                                     </div>
                                     <div class="p-post-pager__item p-post-pager__item--next">
-                                        <a class="p-post-pager__link" href="{{ route('news.detail') }}">プライバシーマーク取得のお知らせ</a>
+                                        <a class="p-post-pager__link" href="">プライバシーマーク取得のお知らせ</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="p-post-pager__home">
-                                <a href="{{ route('news.index') }}">news一覧</a>
+                                <a href="">news一覧</a>
                             </div>
                         </div>
                     </div>
