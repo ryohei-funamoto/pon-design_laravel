@@ -20,4 +20,10 @@ class NewsController extends Controller
         $news_list = $this->news_repository->getNewsList(limit: 10);
         return view('news.index', ['news_list' => $news_list]);
     }
+
+    public function detail($id)
+    {
+        $news = $this->news_repository->getNewsDetail(id: $id);
+        return view('news.detail', ['news' => $news]);
+    }
 }
