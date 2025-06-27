@@ -1702,6 +1702,20 @@ img {
 
 .p-post-pager {
     margin-bottom: 20px;
+    position: relative;
+}
+
+.p-post-pager::before {
+    border-left: 1px solid #b8aed5;
+    content: "";
+    display: block;
+    height: 70px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    z-index: 1;
 }
 
 .p-post-pager__list {
@@ -1714,10 +1728,6 @@ img {
 .p-post-pager__item {
     flex: 0 1 50%;
     margin: 15px 0;
-}
-
-.p-post-pager__item:not(:last-child) {
-    border-right: 1px solid #b8aed5;
 }
 
 .p-post-pager__item--prev .post-pager__link {
