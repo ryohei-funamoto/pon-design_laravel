@@ -4,7 +4,8 @@ namespace App\Repositories;
 
 use App\Models\News;
 
-class NewsRepository {
+class NewsRepository
+{
     public function getNewsList($limit, $use_pagination)
     {
         $news_list_query = News::with('news_category')
@@ -21,5 +22,25 @@ class NewsRepository {
     public function getNewsDetail($id)
     {
         return News::with('news_category')->find($id);
+    }
+
+    public function getPrevNews($news)
+    {
+        return News::select('news.id', 'news.title')
+            ->where('news.created_at', '<=', $news->created_at)
+            ->where('news.id', '<>', $news->id)
+            ->where('news.is_public', '=', 1)
+            ->orderBy('news.created_at', 'desc')
+            ->first();
+    }
+
+    public function getNextNews($news)
+    {
+        return News::select('news.id', 'news.title')
+            ->where('news.created_at', '>=', $news->created_at)
+            ->where('news.id', '<>', $news->id)
+            ->where('news.is_public', '=', 1)
+            ->orderBy('news.created_at', 'asc')
+            ->first();
     }
 }

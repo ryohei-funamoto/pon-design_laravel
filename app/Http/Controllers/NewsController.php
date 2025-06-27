@@ -24,6 +24,13 @@ class NewsController extends Controller
     public function detail($id)
     {
         $news = $this->news_repository->getNewsDetail(id: $id);
-        return view('news.detail', ['news' => $news]);
+        $prev_news = $this->news_repository->getPrevNews(news: $news);
+        $next_news = $this->news_repository->getNextNews(news: $news);
+        $param = [
+            'news' => $news,
+            'prev_news' => $prev_news,
+            'next_news' => $next_news
+        ];
+        return view('news.detail', $param);
     }
 }

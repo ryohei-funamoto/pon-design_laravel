@@ -46,7 +46,8 @@
                                 {{ $news->title }}
                             </div>
                             <div class="p-post__info">
-                                <time class="p-post__date" datetime="{{ $news->created_at->format('Y-m-d') }}">{{ $news->created_at->format('Y.m.d') }}</time>
+                                <time class="p-post__date"
+                                    datetime="{{ $news->created_at->format('Y-m-d') }}">{{ $news->created_at->format('Y.m.d') }}</time>
                                 <div class="c-label-category">{{ $news->news_category->name }}</div>
                             </div>
                         </div>
@@ -63,20 +64,22 @@
                                         </div>
                                     </li>
                                     <li class="p-sns-share__item">
-                                        <a href="https://x.com/share?url={{ url()->current() }}" class="twitter-share-button"
-                                            data-size="large" data-show-count="false" data-lang="ja">ツイート</a>
+                                        <a href="https://x.com/share?url={{ url()->current() }}"
+                                            class="twitter-share-button" data-size="large" data-show-count="false"
+                                            data-lang="ja">ツイート</a>
                                     </li>
                                     <li class="p-sns-share__item">
-                                        <a href="http://b.hatena.ne.jp/entry/{{ url()->current() }}" class="hatena-bookmark-button"
-                                            data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja"
-                                            data-hatena-bookmark-height="28" title="このエントリーをはてなブックマークに追加"><img
+                                        <a href="http://b.hatena.ne.jp/entry/{{ url()->current() }}"
+                                            class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label"
+                                            data-hatena-bookmark-lang="ja" data-hatena-bookmark-height="28"
+                                            title="このエントリーをはてなブックマークに追加"><img
                                                 src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
                                                 alt="このエントリーをはてなブックマークに追加" width="20" height="20"
                                                 style="border: none;" /></a>
                                     </li>
                                     <li class="p-sns-share__item">
-                                        <div class="line-it-button" data-lang="ja" data-type="share-c" data-url="{{ url()->current() }}"
-                                            style="display: none;"></div>
+                                        <div class="line-it-button" data-lang="ja" data-type="share-c"
+                                            data-url="{{ url()->current() }}" style="display: none;"></div>
                                     </li>
                                 </ul>
                             </div>
@@ -84,13 +87,22 @@
                         <div class="p-post__pager">
                             <div class="p-post-pager">
                                 <div class="p-post-pager__list">
-                                    <div class="p-post-pager__item p-post-pager__item--prev">
-                                        <a href="" class="p-post-pager__link">Web
-                                            Conference様のサイトを制作いたしました</a>
-                                    </div>
-                                    <div class="p-post-pager__item p-post-pager__item--next">
-                                        <a class="p-post-pager__link" href="">プライバシーマーク取得のお知らせ</a>
-                                    </div>
+                                    @if (isset($prev_news))
+                                        <div class="p-post-pager__item p-post-pager__item--prev">
+                                            <a href="{{ route('news.detail', ['id' => $prev_news->id]) }}"
+                                                class="p-post-pager__link">
+                                                {{ $prev_news->title }}
+                                            </a>
+                                        </div>
+                                    @endif
+                                    @if (isset($next_news))
+                                        <div class="p-post-pager__item p-post-pager__item--next">
+                                            <a class="p-post-pager__link"
+                                                href="{{ route('news.detail', ['id' => $next_news->id]) }}">
+                                                {{ $next_news->title }}
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="p-post-pager__home">
