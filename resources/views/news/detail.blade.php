@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="p-post-pager__home">
-                                <a href="">news一覧</a>
+                                <a href="{{ route('news.index') }}">news一覧</a>
                             </div>
                         </div>
                     </div>
