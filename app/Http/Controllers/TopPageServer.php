@@ -7,16 +7,15 @@ use Illuminate\Http\Request;
 
 class TopPageServer extends Controller
 {
-    protected $news_repository;
-
-    public function __construct(NewsRepository $news_repository)
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(NewsRepository $news_repository)
     {
-        $this->news_repository = $news_repository;
-    }
-
-    public function index()
-    {
-        $news_list = $this->news_repository->getNewsList(limit: 3, use_pagination: false);
-        return view('index', ['news_list' => $news_list]);
+        $news_list = $news_repository->getNewsList(limit: 3, use_pagination: false);
+        $param = [
+            'news_list' => $news_list
+        ];
+        return view('index', $param);
     }
 }
