@@ -48,7 +48,7 @@
                             <div class="p-post__info">
                                 <time class="p-post__date"
                                     datetime="{{ $news->created_at->format('Y-m-d') }}">{{ $news->created_at->format('Y.m.d') }}</time>
-                                <div class="c-label-category">{{ $news->news_category->name }}</div>
+                                <a href="" class="c-label-category">{{ $news->news_category->name }}</a>
                             </div>
                         </div>
                         <div class="p-post__body">
