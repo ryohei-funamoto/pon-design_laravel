@@ -17,7 +17,12 @@ class NewsController extends Controller
 
     public function index(Request $request)
     {
-        $news_list = $this->news_repository->getNewsList(limit: 10, use_pagination: true, category: $request->category);
+        $news_list = $this->news_repository->getNewsList(
+            limit: 10,
+            use_pagination: true,
+            keyword: $request->input('keyword'),
+            category: $request->input('category')
+        );
         return view('news.index', ['news_list' => $news_list]);
     }
 

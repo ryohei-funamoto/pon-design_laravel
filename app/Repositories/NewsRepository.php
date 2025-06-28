@@ -9,12 +9,20 @@ class NewsRepository
     public function getNewsList(
         $limit,
         $use_pagination,
+        $keyword = null,
         $category = null
     ) {
         $news_list_query = News::with('news_category')
             ->where('news.is_public', '=', 1)
             ->orderBy('news.created_at', 'desc');
 
+        if (isset($keyword)) {
+            $news_list_query = $news_list_query
+                ->where(function ($query) use ($keyword) {
+                    $query->where('title', 'like', '%' . $keyword . '%')
+                        ->orWhere('content', 'like', '%' . $keyword . '%');
+                });
+        }
         if (isset($category)) {
             $news_list_query = $news_list_query
                 ->whereHas('news_category', function ($query) use ($category) {
