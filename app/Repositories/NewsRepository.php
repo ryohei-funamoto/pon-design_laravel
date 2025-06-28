@@ -6,16 +6,29 @@ use App\Models\News;
 
 class NewsRepository
 {
-    public function getNewsList($limit, $use_pagination)
-    {
+    public function getNewsList(
+        $limit,
+        $use_pagination,
+        $category = null
+    ) {
         $news_list_query = News::with('news_category')
             ->where('news.is_public', '=', 1)
             ->orderBy('news.created_at', 'desc');
 
+        if (isset($category)) {
+            $news_list_query = $news_list_query
+                ->whereHas('news_category', function ($query) use ($category) {
+                    $query->where('name', '=', $category);
+                });
+        }
+
         if ($use_pagination) {
-            return $news_list_query->paginate($limit);
+            return $news_list_query
+                ->paginate($limit);
         } else {
-            return $news_list_query->limit($limit)->get();
+            return $news_list_query
+                ->limit($limit)
+                ->get();
         }
     }
 
