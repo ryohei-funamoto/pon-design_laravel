@@ -30,6 +30,31 @@
         </div>
     </div>
     <main class="l-contents">
+        <section class="p-search-form l-section">
+            <div class="p-search-form__inner l-inner">
+                <div class="p-search-form__body">
+                    <form class="c-form" action="{{ route('news.index') }}" method="get">
+                        @csrf
+                        <div class="c-form__item">
+                            <label for="keyword" class="c-form__title">キーワード検索</label>
+                            <input type="text" id="keyword" name="keyword" class="c-form__input">
+                        </div>
+                        <div class="c-form__item">
+                            <label for="category" class="c-form__title">カテゴリー</label>
+                            <select id="category" name="category" class="c-form__select">
+                                <option value="">選択してください</option>
+                                <option value="お知らせ">お知らせ</option>
+                                <option value="制作実績">制作実績</option>
+                                <option value="採用">採用</option>
+                            </select>
+                        </div>
+                        <div class="c-form__btn">
+                            <button type="submit" class="c-btn">検索する</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
         <section class="p-news-list-wrapper l-section">
             <div class="p-news-list-wrapper__inner l-inner">
                 <div class="p-news-list-wrapper__body">

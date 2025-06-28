@@ -2297,4 +2297,8 @@ img {
     }
 }
 
+.p-search-form__inner {
+    max-width: 780px;
+}
+
 /*# sourceMappingURL=style.css.map */
