@@ -34,7 +34,6 @@
             <div class="p-search-form__inner l-inner">
                 <div class="p-search-form__body">
                     <form class="c-form" action="{{ route('news.index') }}" method="get">
-                        @csrf
                         <div class="c-form__item">
                             <label for="keyword" class="c-form__title">キーワード検索</label>
                             <input type="text" id="keyword" name="keyword" class="c-form__input">
