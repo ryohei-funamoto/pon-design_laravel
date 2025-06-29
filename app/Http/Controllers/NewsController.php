@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Repositories\NewsCategoryRepository;
 use App\Repositories\NewsRepository;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
     protected $news_repository;
+    protected $news_category_repository;
 
-    public function __construct(NewsRepository $news_repository)
-    {
+    public function __construct(
+        NewsRepository $news_repository,
+        NewsCategoryRepository $news_category_repository
+    ) {
         $this->news_repository = $news_repository;
+        $this->news_category_repository = $news_category_repository;
     }
 
     public function index(Request $request)
@@ -23,7 +28,12 @@ class NewsController extends Controller
             keyword: $request->input('keyword'),
             category: $request->input('category')
         );
-        return view('news.index', ['news_list' => $news_list]);
+        $category_list = $this->news_category_repository->getAllCategories();
+        $param = [
+            'news_list' => $news_list,
+            'category_list' => $category_list,
+        ];
+        return view('news.index', $param);
     }
 
     public function detail($id)
