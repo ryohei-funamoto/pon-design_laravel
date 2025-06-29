@@ -57,25 +57,29 @@
         <section class="p-news-list-wrapper l-section">
             <div class="p-news-list-wrapper__inner l-inner">
                 <div class="p-news-list-wrapper__body">
-                    <div class="p-news-list">
-                        <ul class="p-news-list__list">
-                            @foreach ($news_list as $news_item)
-                                <li class="p-news-list__item">
-                                    <div class="p-news-list__heading">
-                                        <time datetime="{{ $news_item->created_at->format('Y-m-d') }}"
-                                            class="p-news-list__date">{{ $news_item->created_at->format('Y.m.d') }}</time>
-                                        <div class="p-news-list__label">
-                                            <span class="c-label-category">{{ $news_item->news_category->name }}</span>
+                    @if ($news_list->isEmpty())
+                        <p class="c-message">記事が見つかりませんでした。</p>
+                    @else
+                        <div class="p-news-list">
+                            <ul class="p-news-list__list">
+                                @foreach ($news_list as $news_item)
+                                    <li class="p-news-list__item">
+                                        <div class="p-news-list__heading">
+                                            <time datetime="{{ $news_item->created_at->format('Y-m-d') }}"
+                                                class="p-news-list__date">{{ $news_item->created_at->format('Y.m.d') }}</time>
+                                            <div class="p-news-list__label">
+                                                <span class="c-label-category">{{ $news_item->news_category->name }}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="p-news-list__body">
-                                        <a href="{{ route('news.detail', ['id' => $news_item->id]) }}"
-                                            class="p-news-list__link">{{ $news_item->title }}</a>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                                        <div class="p-news-list__body">
+                                            <a href="{{ route('news.detail', ['id' => $news_item->id]) }}"
+                                                class="p-news-list__link">{{ $news_item->title }}</a>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
                 {{ $news_list->links('vendor.pagination.custom') }}
             </div>
