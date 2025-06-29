@@ -42,9 +42,9 @@
                             <label for="category" class="c-form__title">カテゴリー</label>
                             <select id="category" name="category" class="c-form__select">
                                 <option value="">選択してください</option>
-                                <option value="お知らせ">お知らせ</option>
-                                <option value="制作実績">制作実績</option>
-                                <option value="採用">採用</option>
+                                @foreach ($category_list as $category_item)
+                                    <option value="{{ $category_item->name }}">{{ $category_item->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="c-form__btn">
