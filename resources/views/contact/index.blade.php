@@ -89,7 +89,7 @@
                             </select>
                         </div>
                         <div class="c-form__btn">
-                            <button type="submit" class="c-btn">送信する</button>
+                            <button type="submit" class="c-btn">確認する</button>
                         </div>
                     </form>
                 </div>
