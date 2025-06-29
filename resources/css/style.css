@@ -2305,4 +2305,30 @@ img {
     text-align: center;
 }
 
+.p-contact-form__status-panels {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.p-contact-form__status-panel {
+    background-color: #a798b7;
+    color: #fff;
+    flex-grow: 1;
+    font-weight: 700;
+    padding: 15px;
+    text-align: center;
+}
+
+.p-contact-form__status-panel.current {
+    background-color: #21054d;
+}
+
+.p-contact-form__status-panel.done {
+    background-color: #bcbcbc;
+}
+
+.p-contact-form__status-panel:nth-child(n + 2) {
+    margin-left: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */
