@@ -44,46 +44,41 @@
                     <form class="c-form">
                         <div class="c-form__item">
                             <div class="c-form__title">お問い合わせ種別<span class="c-form__require">*必須</span></div>
-                            <input type="hidden" name="type" value="お仕事のご依頼・ご相談">
-                            <p class="c-form__confirm">お仕事のご依頼・ご相談</p>
+                            <input type="hidden" name="type" value="{{ $data['type'] }}">
+                            <p class="c-form__confirm">{{ $data['type'] }}</p>
                         </div>
                         <div class="c-form__item">
                             <label for="name" class="c-form__title">お名前<span class="c-form__require">*必須</span></label>
-                            <input type="hidden" name="name" value="山田 太郎">
-                            <p class="c-form__confirm">山田 太郎</p>
+                            <input type="hidden" name="name" value="{{ $data['name'] }}">
+                            <p class="c-form__confirm">{{ $data['name'] }}</p>
                         </div>
                         <div class="c-form__item">
                             <label for="company" class="c-form__title">会社名<span class="c-form__require">*必須</span></label>
-                            <input type="hidden" name="company" value="海山商事株式会社">
-                            <p class="c-form__confirm">海山商事株式会社</p>
+                            <input type="hidden" name="company" value="{{ $data['company'] }}">
+                            <p class="c-form__confirm">{{ $data['company'] }}</p>
                         </div>
                         <div class="c-form__item">
                             <label for="email" class="c-form__title">メールアドレス<span
                                     class="c-form__require">*必須</span></label>
-                            <input type="hidden" name="email" value="test@example.com">
-                            <p class="c-form__confirm">test@example.com</p>
+                            <input type="hidden" name="email" value="{{ $data['email'] }}">
+                            <p class="c-form__confirm">{{ $data['email'] }}</p>
                         </div>
                         <div class="c-form__item">
                             <label for="tel" class="c-form__title">電話番号<span
                                     class="c-form__note">（半角数字ハイフンなし）</span></label>
-                            <input type="hidden" name="tel" value="08012345678">
-                            <p class="c-form__confirm">08012345678</p>
+                            <input type="hidden" name="tel" value="{{ $data['tel'] }}">
+                            <p class="c-form__confirm">{{ $data['tel'] }}</p>
                         </div>
                         <div class="c-form__item">
                             <label for="comment" class="c-form__title">お問い合わせ内容</label>
-                            <input type="hidden" name="comment"
-                                value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-                                aliquid assumenda accusantium, totam tempora atque sunt magni tempore iure adipisci. Nulla
-                                doloribus minima omnis ex quis est eligendi neque fugiat!">
-                            <p class="c-form__confirm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-                                aliquid assumenda accusantium, totam tempora atque sunt magni tempore iure adipisci. Nulla
-                                doloribus minima omnis ex quis est eligendi neque fugiat!</p>
+                            <input type="hidden" name="comment" value="{{ $data['comment'] }}">
+                            <p class="c-form__confirm">{{ $data['comment'] }}</p>
                         </div>
                         <div class="c-form__item">
                             <label for="job" class="c-form__title">PON DESIGNをどちらでお知りになりましたか？<span
                                     class="c-form__require">*必須</span></label>
-                            <input type="hidden" name="job" value="Google/Yahoo検索">
-                            <p class="c-form__confirm">Google/Yahoo検索</p>
+                            <input type="hidden" name="job" value="{{ $data['job'] }}">
+                            <p class="c-form__confirm">{{ $data['job'] }}</p>
                         </div>
                         <div class="c-form__btn">
                             <button type="submit" class="c-btn">送信する</button>
