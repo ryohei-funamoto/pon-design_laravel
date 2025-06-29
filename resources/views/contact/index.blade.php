@@ -35,6 +35,11 @@
                 <div class="p-contact-form__lead">
                     Webサイトの制作のご依頼やお見積りなど、<br class="u-sp-only">お気軽にご相談ください。
                 </div>
+                <div class="p-contact-form__status-panels">
+                    <div class="p-contact-form__status-panel current">入力</div>
+                    <div class="p-contact-form__status-panel">確認</div>
+                    <div class="p-contact-form__status-panel">完了</div>
+                </div>
                 <div class="p-contact-form__body">
                     <form class="c-form">
                         <div class="c-form__item">
