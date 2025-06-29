@@ -10,4 +10,9 @@ class ContactController extends Controller
     {
         return view('contact.index');
     }
+
+    public function confirm()
+    {
+        return view('contact.confirm');
+    }
 }
