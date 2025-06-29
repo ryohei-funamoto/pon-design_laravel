@@ -27,3 +27,4 @@ Route::get('recruit', function () {
 })->name('recruit.index');
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
