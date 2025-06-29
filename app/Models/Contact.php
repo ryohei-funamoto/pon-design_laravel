@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     protected $fillable = [
-        'inquiry_type',
+        'type',
         'name',
-        'company_name',
+        'company',
         'email',
         'tel',
-        'content',
-        'know'
+        'comment',
+        'job'
     ];
 
     protected $casts = [

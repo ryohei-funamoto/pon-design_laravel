@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->enum('inquiry_type', [
+            $table->enum('type', [
                 'お仕事のご依頼・ご相談',
                 'お見積りのご依頼',
                 '採用について',
                 'その他',
             ])->default('お仕事のご依頼・ご相談');
             $table->string('name');
-            $table->string('company_name');
+            $table->string('company');
             $table->string('email');
             $table->string('tel')->nullable();
-            $table->text('content')->nullable();
-            $table->enum('know', [
+            $table->text('comment')->nullable();
+            $table->enum('job', [
                 'Google/Yahoo検索',
                 'SNS',
                 'ブログ',
