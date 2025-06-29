@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TopPageServer;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,4 @@ Route::get('recruit', function () {
     return view('recruit.index');
 })->name('recruit.index');
 
-Route::get('contact', function () {
-    return view('contact.index');
-})->name('contact.index');
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
