@@ -41,51 +41,59 @@
                     <div class="p-contact-form__status-panel">完了</div>
                 </div>
                 <div class="p-contact-form__body">
-                    <form class="c-form">
+                    <form class="c-form" action="{{ route('contact.confirm') }}" method="post">
+                        @csrf
                         <div class="c-form__item">
                             <div class="c-form__title">お問い合わせ種別<span class="c-form__require">*必須</span></div>
                             <span class="c-form__radio">
-                                <input type="radio" id="type01" name="type" value="お仕事のご依頼・ご相談" checked><label
-                                    for="type01">お仕事のご依頼・ご相談</label></span>
-                            <span class="c-form__radio"><input type="radio" id="type02" name="type"
-                                    value="お見積りのご依頼"><label for="type02">お見積りのご依頼</label></span>
-                            <span class="c-form__radio"><input type="radio" id="type03" name="type"
-                                    value="採用について"><label for="type03">採用について</label></span>
-                            <span class="c-form__radio"><input type="radio" id="type04" name="type"
-                                    value="その他"><label for="type04">その他</label></span>
+                                <input type="radio" id="type01" name="type" value="お仕事のご依頼・ご相談" {{ old('type', 'お仕事のご依頼・ご相談') == 'お仕事のご依頼・ご相談' ? 'checked' : '' }}>
+                                <label for="type01">お仕事のご依頼・ご相談</label>
+                            </span>
+                            <span class="c-form__radio">
+                                <input type="radio" id="type02" name="type" value="お見積りのご依頼" {{ old('type', 'お仕事のご依頼・ご相談') == 'お見積りのご依頼' ? 'checked' : '' }}>
+                                <label for="type02">お見積りのご依頼</label>
+                            </span>
+                            <span class="c-form__radio">
+                                <input type="radio" id="type03" name="type" value="採用について" {{ old('type', 'お仕事のご依頼・ご相談') == '採用について' ? 'checked' : '' }}>
+                                <label for="type03">採用について</label>
+                            </span>
+                            <span class="c-form__radio">
+                                <input type="radio" id="type04" name="type" value="その他" {{ old('type', 'お仕事のご依頼・ご相談') == 'その他' ? 'checked' : '' }}>
+                                <label for="type04">その他</label>
+                            </span>
                         </div>
                         <div class="c-form__item">
                             <label for="name" class="c-form__title">お名前<span class="c-form__require">*必須</span></label>
-                            <input type="text" id="name" name="name" required class="c-form__input">
+                            <input type="text" id="name" name="name" required class="c-form__input" value="{{ old('name') }}">
                         </div>
                         <div class="c-form__item">
                             <label for="company" class="c-form__title">会社名<span class="c-form__require">*必須</span></label>
-                            <input type="text" id="company" name="company" required class="c-form__input">
+                            <input type="text" id="company" name="company" required class="c-form__input" value="{{ old('company') }}">
                         </div>
                         <div class="c-form__item">
                             <label for="email" class="c-form__title">メールアドレス<span
                                     class="c-form__require">*必須</span></label>
-                            <input type="email" id="email" name="email" required class="c-form__input">
+                            <input type="email" id="email" name="email" required class="c-form__input" value="{{ old('email') }}">
                         </div>
                         <div class="c-form__item">
                             <label for="tel" class="c-form__title">電話番号<span
                                     class="c-form__note">（半角数字ハイフンなし）</span></label>
-                            <input type="tel" id="tel" name="tel" class="c-form__input">
+                            <input type="tel" id="tel" name="tel" class="c-form__input" value="{{ old('tel') }}">
                         </div>
                         <div class="c-form__item">
                             <label for="comment" class="c-form__title">お問い合わせ内容</label>
-                            <textarea id="comment" name="comment" placeholder="お問い合わせ内容を具体的にご記入くださいませ。" class="c-form__textarea"></textarea>
+                            <textarea id="comment" name="comment" placeholder="お問い合わせ内容を具体的にご記入くださいませ。" class="c-form__textarea">{{ old('comment') }}</textarea>
                         </div>
                         <div class="c-form__item">
                             <label for="job" class="c-form__title">PON DESIGNをどちらでお知りになりましたか？<span
                                     class="c-form__require">*必須</span></label>
                             <select id="job" name="job" required class="c-form__select">
-                                <option value="">選択してください</option>
-                                <option value="Google/Yahoo検索">Google/Yahoo検索</option>
-                                <option value="SNS">SNS</option>
-                                <option value="ブログ">ブログ</option>
-                                <option value="友人や知人">友人や知人</option>
-                                <option value="その他">その他</option>
+                                <option value="" hidden selected>選択してください</option>
+                                <option value="Google/Yahoo検索" {{ old('job') == 'Google/Yahoo検索' ? 'selected' : '' }}>Google/Yahoo検索</option>
+                                <option value="SNS" {{ old('job') == 'SNS' ? 'selected' : '' }}>SNS</option>
+                                <option value="ブログ" {{ old('job') == 'ブログ' ? 'selected' : '' }}>ブログ</option>
+                                <option value="友人や知人" {{ old('job') == '友人や知人' ? 'selected' : '' }}>友人や知人</option>
+                                <option value="その他" {{ old('job') == 'SNS' ? 'その他' : '' }}>その他</option>
                             </select>
                         </div>
                         <div class="c-form__btn">
