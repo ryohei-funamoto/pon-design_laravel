@@ -16,4 +16,9 @@ class ContactController extends Controller
         $data = $request->only(['type', 'name', 'company', 'email', 'tel', 'comment', 'job']);
         return view('contact.confirm', ['data' => $data]);
     }
+
+    public function send()
+    {
+        return view('contact.thanks');
+    }
 }
