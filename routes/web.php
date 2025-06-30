@@ -28,4 +28,4 @@ Route::get('recruit', function () {
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
-Route::get('contact/thanks', [ContactController::class, 'send'])->name('contact.send');
+Route::get('contact/thanks', [ContactController::class, 'send'])->name('contact.thanks');
