@@ -39,7 +39,7 @@
                 </div>
                 <div class="p-contact-form__body">
                     <p class="p-contact-form__message">
-                        山田 太郎 さん、お問い合わせありがとうございます。<br>
+                        {{ $name }} さん、お問い合わせありがとうございます。<br>
                         お問い合わせいただいた内容を確認の上、3営業日以内に折り返しご連絡させていただきます。
                     </p>
                 </div>
