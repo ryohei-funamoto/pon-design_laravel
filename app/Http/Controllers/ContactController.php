@@ -19,6 +19,6 @@ class ContactController extends Controller
 
     public function send()
     {
-        return view('contact.thanks');
+        return view('contact.send');
     }
 }
