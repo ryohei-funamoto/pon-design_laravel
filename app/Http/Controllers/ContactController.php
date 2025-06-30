@@ -17,8 +17,9 @@ class ContactController extends Controller
         return view('contact.confirm', ['data' => $data]);
     }
 
-    public function send()
+    public function send(Request $request)
     {
-        return view('contact.thanks');
+        $name = $request->input('name');
+        return view('contact.thanks', ['name' => $name]);
     }
 }

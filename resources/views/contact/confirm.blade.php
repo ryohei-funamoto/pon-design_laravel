@@ -41,7 +41,8 @@
                     <div class="p-contact-form__status-panel">完了</div>
                 </div>
                 <div class="p-contact-form__body">
-                    <form class="c-form">
+                    <form class="c-form" action="{{ route('contact.thanks') }}" method="post">
+                        @csrf
                         <div class="c-form__item">
                             <div class="c-form__title">お問い合わせ種別<span class="c-form__require">*必須</span></div>
                             <input type="hidden" name="type" value="{{ $data['type'] }}">
