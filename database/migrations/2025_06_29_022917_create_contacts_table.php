@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('company');
             $table->string('email');
+            $table->string('email_confirmation');
             $table->string('tel')->nullable();
             $table->text('comment')->nullable();
             $table->enum('job', [
