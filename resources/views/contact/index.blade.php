@@ -76,6 +76,11 @@
                             <input type="email" id="email" name="email" required class="c-form__input" value="{{ old('email') }}">
                         </div>
                         <div class="c-form__item">
+                            <label for="email_confirmation" class="c-form__title">メールアドレス（確認用）<span
+                                    class="c-form__require">*必須</span></label>
+                            <input type="email" id="email_confirmation" name="email_confirmation" required class="c-form__input" value="{{ old('email_confirmation') }}">
+                        </div>
+                        <div class="c-form__item">
                             <label for="tel" class="c-form__title">電話番号<span
                                     class="c-form__note">（半角数字ハイフンなし）</span></label>
                             <input type="tel" id="tel" name="tel" class="c-form__input" value="{{ old('tel') }}">
