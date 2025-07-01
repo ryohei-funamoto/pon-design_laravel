@@ -13,7 +13,7 @@ class ContactController extends Controller
 
     public function confirm(Request $request)
     {
-        $data = $request->only(['type', 'name', 'company', 'email', 'tel', 'comment', 'job']);
+        $data = $request->only(['type', 'name', 'company', 'email', 'email_confirmation', 'tel', 'comment', 'job']);
         return view('contact.confirm', ['data' => $data]);
     }
 
