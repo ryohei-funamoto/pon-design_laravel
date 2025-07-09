@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('news_category_id');
+            $table->foreignId('news_category_id')->constrained()->onDelete('cascade');
             $table->string('thumbnail');
             $table->text('content');
             $table->boolean('is_public');
