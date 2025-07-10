@@ -41,7 +41,7 @@
                     <div class="p-contact-form__status-panel">完了</div>
                 </div>
                 <div class="p-contact-form__body">
-                    <form class="c-form" action="{{ route('contact.confirm') }}" method="post">
+                    <form class="c-form" action="{{ route('contact.confirm') }}" method="post" novalidate>
                         @csrf
                         <div class="c-form__item">
                             <div class="c-form__title">お問い合わせ種別<span class="c-form__require">*必須</span></div>
@@ -64,35 +64,50 @@
                         </div>
                         <div class="c-form__item">
                             <label for="name" class="c-form__title">お名前<span class="c-form__require">*必須</span></label>
-                            <input type="text" id="name" name="name" required class="c-form__input" value="{{ old('name') }}">
+                            <input type="text" id="name" name="name" class="c-form__input" value="{{ old('name') }}">
+                            @error('name')
+                                <p class="c-form__error-message">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="c-form__item">
                             <label for="company" class="c-form__title">会社名<span class="c-form__require">*必須</span></label>
-                            <input type="text" id="company" name="company" required class="c-form__input" value="{{ old('company') }}">
+                            <input type="text" id="company" name="company" class="c-form__input" value="{{ old('company') }}">
+                            @error('company')
+                                <p class="c-form__error-message">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="c-form__item">
                             <label for="email" class="c-form__title">メールアドレス<span
                                     class="c-form__require">*必須</span></label>
-                            <input type="email" id="email" name="email" required class="c-form__input" value="{{ old('email') }}">
+                            <input type="email" id="email" name="email" class="c-form__input" value="{{ old('email') }}">
+                            @error('email')
+                                <p class="c-form__error-message">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="c-form__item">
                             <label for="email_confirmation" class="c-form__title">メールアドレス（確認用）<span
                                     class="c-form__require">*必須</span></label>
-                            <input type="email" id="email_confirmation" name="email_confirmation" required class="c-form__input" value="{{ old('email_confirmation') }}">
+                            <input type="email" id="email_confirmation" name="email_confirmation" class="c-form__input" value="{{ old('email_confirmation') }}">
                         </div>
                         <div class="c-form__item">
                             <label for="tel" class="c-form__title">電話番号<span
                                     class="c-form__note">（半角数字ハイフンなし）</span></label>
                             <input type="tel" id="tel" name="tel" class="c-form__input" value="{{ old('tel') }}">
+                            @error('tel')
+                                <p class="c-form__error-message">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="c-form__item">
                             <label for="comment" class="c-form__title">お問い合わせ内容</label>
                             <textarea id="comment" name="comment" placeholder="お問い合わせ内容を具体的にご記入くださいませ。" class="c-form__textarea">{{ old('comment') }}</textarea>
+                            @error('comment')
+                                <p class="c-form__error-message">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="c-form__item">
                             <label for="job" class="c-form__title">PON DESIGNをどちらでお知りになりましたか？<span
                                     class="c-form__require">*必須</span></label>
-                            <select id="job" name="job" required class="c-form__select">
+                            <select id="job" name="job" class="c-form__select">
                                 <option value="" hidden selected>選択してください</option>
                                 <option value="Google/Yahoo検索" {{ old('job') == 'Google/Yahoo検索' ? 'selected' : '' }}>Google/Yahoo検索</option>
                                 <option value="SNS" {{ old('job') == 'SNS' ? 'selected' : '' }}>SNS</option>
@@ -100,6 +115,9 @@
                                 <option value="友人や知人" {{ old('job') == '友人や知人' ? 'selected' : '' }}>友人や知人</option>
                                 <option value="その他" {{ old('job') == 'SNS' ? 'その他' : '' }}>その他</option>
                             </select>
+                            @error('job')
+                                <p class="c-form__error-message">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="c-form__btn">
                             <button type="submit" class="c-btn">確認する</button>

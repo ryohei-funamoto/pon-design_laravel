@@ -2331,4 +2331,10 @@ img {
     margin-left: 20px;
 }
 
+.c-form__error-message {
+    color: tomato;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 /*# sourceMappingURL=style.css.map */
