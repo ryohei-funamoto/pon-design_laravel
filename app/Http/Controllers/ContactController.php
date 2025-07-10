@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -11,9 +12,18 @@ class ContactController extends Controller
         return view('contact.index');
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
-        $data = $request->only(['type', 'name', 'company', 'email', 'tel', 'comment', 'job']);
+        $validated = $request->validated();
+        $data = [
+            'type' => $validated['type'],
+            'name' => $validated['name'],
+            'company' => $validated['company'],
+            'email' => $validated['email'],
+            'tel' => $validated['tel'],
+            'comment' => $validated['comment'],
+            'job' => $validated['job'],
+        ];
         return view('contact.confirm', ['data' => $data]);
     }
 
