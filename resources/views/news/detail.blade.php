@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Webデザインニュースサイト「ウェブマガジン」に取材いただきました｜PON DESIGN')
+@section('title', $news->title . '｜PON DESIGN')
 
 @section('content')
     <div class="p-sub-hero">
