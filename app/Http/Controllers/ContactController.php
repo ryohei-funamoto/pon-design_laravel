@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -29,6 +30,16 @@ class ContactController extends Controller
 
     public function send(Request $request)
     {
+        $data = $request->only([
+            'type',
+            'name',
+            'company',
+            'email',
+            'tel',
+            'comment',
+            'job',
+        ]);
+        Contact::create($data);
         $name = $request->input('name');
         return view('contact.thanks', ['name' => $name]);
     }
