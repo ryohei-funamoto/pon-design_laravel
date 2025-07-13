@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             NewsCategoriesTableSeeder::class,
             NewsTableSeeder::class,
+            WorksCategoriesTableSeeder::class,
         ]);
     }
 }
