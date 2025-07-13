@@ -18,4 +18,9 @@ class Work extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime,'
     ];
+
+    public function works_category()
+    {
+        return $this->belongsTo(WorksCategory::class);
+    }
 }
