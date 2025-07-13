@@ -88,6 +88,9 @@
                             <label for="email_confirmation" class="c-form__title">メールアドレス（確認用）<span
                                     class="c-form__require">*必須</span></label>
                             <input type="email" id="email_confirmation" name="email_confirmation" class="c-form__input" value="{{ old('email_confirmation') }}">
+                            @error('email_confirmation')
+                                <p class="c-form__error-message">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="c-form__item">
                             <label for="tel" class="c-form__title">電話番号<span
