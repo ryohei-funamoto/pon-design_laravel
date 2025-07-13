@@ -26,27 +26,43 @@ class ContactRequest extends FormRequest
             'name' => 'required|max:20',
             'company' => 'required|max:30',
             'email' => 'required|email|max:255|confirmed',
+            'email_confirmation' => 'required',
             'tel' => 'nullable|regex:/^(0{1}\d{9,10})$/',
             'comment' => 'nullable|max:500',
             'job' => 'required',
         ];
     }
 
+    public function attributes()
+    {
+        return [
+            'type' => 'お問い合わせ種別',
+            'name' => 'お名前',
+            'company' => '会社名',
+            'email' => 'メールアドレス',
+            'email_confirmation' => 'メールアドレス（確認用）',
+            'tel' => '電話番号',
+            'comment' => 'お問い合わせ内容',
+            'job' => 'PON DESIGNをどちらでお知りになりましたか？',
+        ];
+    }
+
     public function messages()
     {
         return [
-            'type.required' => 'お問い合わせ種別の選択は必須です',
-            'name.required' => 'お名前の入力は必須です',
-            'name.max' => 'お名前は :max 文字以内で入力してください',
-            'company.required' => '会社名の入力は必須です',
-            'company.max' => '会社名は :max 文字以内で入力してください',
-            'email.required' => 'メールアドレスの入力は必須です',
-            'email.email' => 'メールアドレスの形式が不適切です',
-            'email.max' => 'メールアドレスは :max 文字以内で入力してください',
-            'email.confirmed' => 'メールアドレスと確認用メールアドレスが一致しません',
-            'tel.regex' => '電話番号はハイフン無しで入力してください',
-            'comment.max' => 'お問い合わせ内容は :max 文字以内でご入力ください',
-            'job.required' => '「PON DESIGNをどちらでお知りになりましたか？」を選択してください',
+            'type.required' => ':attribute の選択は必須です',
+            'name.required' => ':attribute の入力は必須です',
+            'name.max' => ':attribute は :max 文字以内で入力してください',
+            'company.required' => ':attribute の入力は必須です',
+            'company.max' => ':attribute は :max 文字以内で入力してください',
+            'email.required' => ':attribute の入力は必須です',
+            'email.email' => ':attribute の形式が不適切です',
+            'email.max' => ':attribute は :max 文字以内で入力してください',
+            'email.confirmed' => ':attribute とメールアドレス（確認用）が一致しません',
+            'email_confirmation.required' => ':attribute の入力は必須です',
+            'tel.regex' => ':attribute はハイフン無しで入力してください',
+            'comment.max' => ':attribute は :max 文字以内でご入力ください',
+            'job.required' => '「 :attribute 」を選択してください',
         ];
     }
 }
