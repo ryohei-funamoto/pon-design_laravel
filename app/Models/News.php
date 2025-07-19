@@ -23,6 +23,6 @@ class News extends Model
 
     public function news_category()
     {
-        return $this->belongsTo(NewsCategory::class);
+        return $this->belongsTo(NewsCategory::class, 'news_category_id', 'id');
     }
 }
