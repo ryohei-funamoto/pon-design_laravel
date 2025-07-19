@@ -21,6 +21,6 @@ class Work extends Model
 
     public function works_category()
     {
-        return $this->belongsTo(WorksCategory::class);
+        return $this->belongsTo(WorksCategory::class, 'works_category_id', 'id');
     }
 }
