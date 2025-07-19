@@ -31,7 +31,7 @@ return new class extends Migration
                 '友人や知人',
                 'その他',
             ]);
-            $table->timestamps();
+            $table->timestamp('created_at');
         });
     }
 
