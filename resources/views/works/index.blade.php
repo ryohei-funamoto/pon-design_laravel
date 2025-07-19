@@ -13,16 +13,14 @@
         <div class="l-inner">
             <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="p-breadcrumb__list">
                 <!-- 1つめ -->
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
-                    class="p-breadcrumb__item">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="p-breadcrumb__item">
                     <a itemprop="item" href="{{ route('index') }}" class="p-breadcrumb__link">
                         <span itemprop="name">HOME</span>
                     </a>
                     <meta itemprop="position" content="1" />
                 </li>
                 <!-- 2つめ -->
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"
-                    class="p-breadcrumb__item">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="p-breadcrumb__item">
                     <span itemprop="item">
                         <span itemprop="name">works</span>
                     </span>
@@ -35,56 +33,25 @@
         <section class="p-works-list-wrapper l-section">
             <div class="l-inner">
                 <div class="p-works-list c-card-wrapper c-card-wrapper--col3">
-                    <div class="c-card">
-                        <a href="#" class="c-card__link">
-                            <div class="c-card__img-wrapper">
-                                <img class="c-card__img" src="{{ asset('img/works/smoothiesta.jpg') }}" alt="">
-                            </div>
-                            <div class="c-card__body">
-                                <div class="c-card__caption">Smoothiesta 様</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="c-card">
-                        <a href="#" class="c-card__link">
-                            <div class="c-card__img-wrapper">
-                                <img class="c-card__img" src="{{ asset('img/works/web-conference.jpg') }}" alt="">
-                            </div>
-                            <div class="c-card__body">
-                                <div class="c-card__caption">Web Conference 様</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="c-card">
-                        <a href="#" class="c-card__link">
-                            <div class="c-card__img-wrapper">
-                                <img class="c-card__img" src="{{ asset('img/works/lamina.jpg') }}" alt="">
-                            </div>
-                            <div class="c-card__body">
-                                <div class="c-card__caption">LAMINA 様</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="c-card">
-                        <a href="#" class="c-card__link">
-                            <div class="c-card__img-wrapper">
-                                <img class="c-card__img" src="{{ asset('img/works/citylab.jpg') }}" alt="">
-                            </div>
-                            <div class="c-card__body">
-                                <div class="c-card__caption">CITYLab 様</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="c-card">
-                        <a href="#" class="c-card__link">
-                            <div class="c-card__img-wrapper">
-                                <img class="c-card__img" src="{{ asset('img/works/tabilog.jpg') }}" alt="">
-                            </div>
-                            <div class="c-card__body">
-                                <div class="c-card__caption">TABILOG 様</div>
-                            </div>
-                        </a>
-                    </div>
+                    @foreach ($work_list as $work_item)
+                        <div class="c-card">
+                            <a href="#" class="c-card__link">
+                                <div class="c-card__img-wrapper">
+                                    <img class="c-card__img" src="{{ $work_item->thumbnail }}" alt="{{ $work_item->title . ' 様' }}">
+                                </div>
+                                <div class="c-card__body">
+                                    <div class="c-card__caption">{{ $work_item->title . ' 様' }}</div>
+                                </div>
+                                <div class="c-card__footer">
+                                    <time class="c-card__published" datetime="{{ $work_item->created_at->format('Y-m-d') }}">{{ $work_item->created_at->format('Y年m月d日') }}</time>
+                                    <span class="c-card__category">{{ $work_item->works_category->name }}</span>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="l-works-pagination">
+                    {{ $work_list->appends(request()->query())->links('vendor.pagination.custom') }}
                 </div>
             </div>
         </section>
