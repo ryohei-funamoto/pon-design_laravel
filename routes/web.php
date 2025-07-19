@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TopPageServer;
+use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', TopPageServer::class)->name('index');
@@ -14,9 +15,7 @@ Route::get('service', function () {
     return view('service.index');
 })->name('service.index');
 
-Route::get('works', function () {
-    return view('works.index');
-})->name('works.index');
+Route::get('works', [WorkController::class, 'index'])->name('works.index');
 
 Route::get('company', function () {
     return view('company.index');
