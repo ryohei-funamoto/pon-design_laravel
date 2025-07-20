@@ -80,7 +80,7 @@
                             </ul>
                         </div>
                     </div>
-                    {{ $news_list->links('vendor.pagination.custom') }}
+                    {{ $news_list->appends(request()->query())->links('vendor.pagination.custom') }}
                 @endif
             </div>
         </section>
