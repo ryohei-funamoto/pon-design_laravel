@@ -56,10 +56,10 @@
         </section>
         <section class="p-news-list-wrapper l-section">
             <div class="p-news-list-wrapper__inner l-inner">
-                <div class="p-news-list-wrapper__body">
-                    @if ($news_list->isEmpty())
-                        <p class="c-message">記事が見つかりませんでした。</p>
-                    @else
+                @if ($news_list->isEmpty())
+                    <p class="c-message">記事が見つかりませんでした。</p>
+                @else
+                    <div class="p-news-list-wrapper__body">
                         <div class="p-news-list">
                             <ul class="p-news-list__list">
                                 @foreach ($news_list as $news_item)
@@ -79,9 +79,9 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
-                </div>
-                {{ $news_list->links('vendor.pagination.custom') }}
+                    </div>
+                    {{ $news_list->links('vendor.pagination.custom') }}
+                @endif
             </div>
         </section>
         @include('components.contact_section')
