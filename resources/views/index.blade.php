@@ -32,13 +32,15 @@
                             @foreach ($news_list as $news_item)
                                 <li class="p-news-list__item">
                                     <div class="p-news-list__heading">
-                                        <time datetime="{{ $news_item->created_at->format('Y-m-d') }}" class="p-news-list__date">{{ $news_item->created_at->format('Y.m.d') }}</time>
+                                        <time datetime="{{ $news_item->created_at->format('Y-m-d') }}"
+                                            class="p-news-list__date">{{ $news_item->created_at->format('Y.m.d') }}</time>
                                         <div class="p-news-list__label">
                                             <span class="c-label-category">{{ $news_item->news_category->name }}</span>
                                         </div>
                                     </div>
                                     <div class="p-news-list__body">
-                                        <a href="{{ route('news.detail', ['id' => $news_item->id]) }}" class="p-news-list__link">{{ $news_item->title }}</a>
+                                        <a href="{{ route('news.detail', ['id' => $news_item->id]) }}"
+                                            class="p-news-list__link">{{ $news_item->title }}</a>
                                     </div>
                                 </li>
                             @endforeach
@@ -100,12 +102,12 @@
                 <div class="p-works__img-wrapper">
                     <div class="swiper-container js-swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('img/works/smoothiesta.jpg') }}" alt="">
-                            </div>
-                            <div class="swiper-slide"><img src="{{ asset('img/works/web-conference.jpg') }}" alt="">
-                            </div>
-                            <div class="swiper-slide"><img src="{{ asset('img/works/lamina.jpg') }}" alt="">
-                            </div>
+                            @foreach ($work_list as $work_item)
+                                <div class="swiper-slide p-works-slide">
+                                    <img src="{{ asset($work_item->thumbnail) }}" alt="{{ $work_item->title . ' 様' }}" class="p-works-slide__image">
+                                    <p class="p-works-slide__title">{{ $work_item->title . ' 様' }}</p>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="swiper-pagination"></div>
                         <div class="swiper-button-prev"></div>

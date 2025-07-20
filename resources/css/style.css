@@ -2361,4 +2361,17 @@ img {
     font-weight: 700;
 }
 
+.p-works-slide__title {
+    background-image: linear-gradient(to right, #7633a4, #250d65);
+    border-radius: 50px;
+    bottom: 16px;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 20px;
+    position: absolute;
+    right: 16px
+}
+
 /*# sourceMappingURL=style.css.map */
