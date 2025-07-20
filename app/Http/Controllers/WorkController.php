@@ -34,4 +34,17 @@ class WorkController extends Controller
         ];
         return view('works.index', $param);
     }
+
+    public function detail($id)
+    {
+        $work = $this->work_repository->getWorkDetail(id: $id);
+        $prev_work = $this->work_repository->getPrevWork(work: $work);
+        $next_work = $this->work_repository->getNextWork(work: $work);
+        $param = [
+            'work' => $work,
+            'prev_work' => $prev_work,
+            'next_work' => $next_work,
+        ];
+        return view('works.detail', $param);
+    }
 }
