@@ -14,7 +14,7 @@ class NewsRepository
     ) {
         $news_list_query = News::with('news_category')
             ->where('news.is_public', '=', 1)
-            ->orderBy('news.created_at', 'desc');
+            ->orderByDesc('news.created_at');
 
         if (isset($keyword)) {
             $news_list_query = $news_list_query
