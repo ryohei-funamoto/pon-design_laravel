@@ -30,6 +30,30 @@
         </div>
     </div>
     <main class="l-contents">
+        <section class="p-search-form l-section">
+            <div class="p-search-form__inner l-inner">
+                <div class="p-search-form__body">
+                    <form class="c-form" action="{{ route('works.index') }}" method="get">
+                        <div class="c-form__item">
+                            <label for="keyword" class="c-form__title">キーワード検索</label>
+                            <input type="text" id="keyword" name="keyword" class="c-form__input">
+                        </div>
+                        <div class="c-form__item">
+                            <label for="category" class="c-form__title">カテゴリー</label>
+                            <select id="category" name="category" class="c-form__select">
+                                <option value="">選択してください</option>
+                                @foreach ($category_list as $category_item)
+                                    <option value="{{ $category_item->name }}">{{ $category_item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="c-form__btn">
+                            <button type="submit" class="c-btn">検索する</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
         <section class="p-works-list-wrapper l-section">
             <div class="l-inner">
                 <div class="p-works-list c-card-wrapper c-card-wrapper--col3">
@@ -37,13 +61,15 @@
                         <div class="c-card">
                             <a href="#" class="c-card__link">
                                 <div class="c-card__img-wrapper">
-                                    <img class="c-card__img" src="{{ $work_item->thumbnail }}" alt="{{ $work_item->title . ' 様' }}">
+                                    <img class="c-card__img" src="{{ $work_item->thumbnail }}"
+                                        alt="{{ $work_item->title . ' 様' }}">
                                 </div>
                                 <div class="c-card__body">
                                     <div class="c-card__caption">{{ $work_item->title . ' 様' }}</div>
                                 </div>
                                 <div class="c-card__footer">
-                                    <time class="c-card__published" datetime="{{ $work_item->created_at->format('Y-m-d') }}">{{ $work_item->created_at->format('Y年m月d日') }}</time>
+                                    <time class="c-card__published"
+                                        datetime="{{ $work_item->created_at->format('Y-m-d') }}">{{ $work_item->created_at->format('Y年m月d日') }}</time>
                                     <span class="c-card__category">{{ $work_item->works_category->name }}</span>
                                 </div>
                             </a>
