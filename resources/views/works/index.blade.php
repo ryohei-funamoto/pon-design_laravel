@@ -62,7 +62,7 @@
                     <div class="p-works-list c-card-wrapper c-card-wrapper--col3">
                         @foreach ($work_list as $work_item)
                             <div class="c-card">
-                                <a href="{{ route('works.detail') }}" class="c-card__link">
+                                <a href="{{ route('works.detail', ['id' => $work_item->id]) }}" class="c-card__link">
                                     <div class="c-card__img-wrapper">
                                         <img class="c-card__img" src="{{ $work_item->thumbnail }}"
                                             alt="{{ $work_item->title . ' 様' }}">

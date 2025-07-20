@@ -39,4 +39,29 @@ class WorkRepository
                 ->get();
         }
     }
+
+    public function getWorkDetail($id)
+    {
+        return Work::with('works_category')->find($id);
+    }
+
+    public function getPrevWork($work)
+    {
+        return Work::with('works_category')
+            ->where('works.created_at', '<=', $work->created_at)
+            ->where('works.id', '<>', $work->id)
+            ->where('works.is_public', '=', 1)
+            ->orderByDesc('works.created_at')
+            ->first();
+    }
+
+    public function getNextWork($work)
+    {
+        return Work::with('works_category')
+            ->where('works.created_at', '>=', $work->created_at)
+            ->where('works.id', '<>', $work->id)
+            ->where('works.is_public', '=', 1)
+            ->orderBy('works.created_at', 'asc')
+            ->first();
+    }
 }
