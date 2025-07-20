@@ -747,7 +747,7 @@ img {
 .c-label-category {
     font-weight: bold;
     display: block;
-    width: 80px;
+    min-width: 80px;
     padding: 2px 10px;
     text-align: center;
     color: #333;

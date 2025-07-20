@@ -16,6 +16,9 @@ Route::get('service', function () {
 })->name('service.index');
 
 Route::get('works', [WorkController::class, 'index'])->name('works.index');
+Route::get('works/detail', function () {
+    return view('works.detail');
+})->name('works.detail');
 
 Route::get('company', function () {
     return view('company.index');
